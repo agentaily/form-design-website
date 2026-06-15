@@ -13,7 +13,7 @@ import { GenCanvas, Typewriter } from "./heroDemo";
 // Where the primary "start free" CTA points: the live Form Design app. Not
 // user-visible copy (it's an action target); the URL also appears as a labelled
 // link in the footer.
-const APP_URL = "https://form-design.agentaily.com/";
+const APP_URL = "https://form-design.studio.agentaily.com/";
 
 function scrollToId(id: string) {
   const el = document.getElementById(id);
