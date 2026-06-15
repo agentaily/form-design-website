@@ -1,10 +1,9 @@
 name: Deploy to Cloudflare Pages
 
 on:
-  # ⚠️ CF Pages 项目 + 仓库密钥(CLOUDFLARE_API_TOKEN/ACCOUNT_ID)配好前先只手动触发,
-  # 避免每次 push 都因缺 CF 配置而失败。配好后把 push 触发恢复(见 cloudflare-pages-deploy skill)。
-  #   push:
-  #     branches: [main]
+  # CF Pages 项目 + 仓库密钥已配(2026-06-15),push main 自动部署。
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
