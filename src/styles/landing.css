@@ -1,9 +1,9 @@
 /* ============================================================
-   Agentaily 官网 — landing page layout
+   Form Design 官网 — landing page layout
    Composes the @agentaily/design-system tokens (palette / type / spacing /
    effects come from its styles.css — never redefined here). Prefix: aw-
-   (agentaily web). Active render tree only: Nav · Hero · Works · FAQ · Footer.
-   The DS supplies the components; this sheet is just page layout.
+   (agentaily web). Active render tree only: Nav · Hero · Features · HowTo · FAQ
+   · Footer. The DS supplies the components; this sheet is just page layout.
    ============================================================ */
 
 .aw {
@@ -454,42 +454,33 @@
   }
 }
 
-/* ---------- works / 作品 ---------- */
-.aw-works {
+/* ---------- features / 能力 ---------- */
+.aw-feats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
-  align-items: stretch;
 }
-.aw-work {
-  display: block;
-  height: 100%;
-  text-decoration: none;
-  color: inherit;
-  transition: transform var(--dur-2) var(--ease-out);
-}
-.aw-work > div {
-  height: 100%;
-  transition: border-color var(--dur-1) var(--ease-out);
-}
-.aw-work:not(.is-static):hover {
-  transform: translateY(-3px);
-}
-.aw-work:not(.is-static):hover > div {
-  border-color: var(--border-strong);
-}
-.aw-work__in {
+.aw-feat {
   display: flex;
   flex-direction: column;
   gap: 10px;
   height: 100%;
 }
-.aw-work__top {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.aw-feat__ic {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-2);
+  color: var(--text-body);
+  background: var(--surface-page);
 }
-.aw-work__name {
+.aw-feat__ic svg {
+  width: 19px;
+  height: 19px;
+}
+.aw-feat__name {
   margin: 6px 0 0;
   font-family: var(--font-display);
   font-size: var(--text-xl);
@@ -497,35 +488,53 @@
   letter-spacing: var(--tracking-tight);
   color: var(--text-body);
 }
-.aw-work__zh {
-  margin: 0;
-  font-size: var(--text-sm);
-  color: var(--text-muted);
-}
-.aw-work__desc {
-  margin: 6px 0 0;
+.aw-feat__desc {
+  margin: 2px 0 0;
   font-size: var(--text-sm);
   color: var(--text-muted);
   line-height: var(--leading-body);
+  text-wrap: pretty;
 }
-.aw-work__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: auto;
-  padding-top: 14px;
+
+/* ---------- how it works / 怎么用 ---------- */
+.aw-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.aw-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-3);
+  background: var(--surface-panel);
+}
+.aw-step__n {
   font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: 0.03em;
+  font-size: var(--text-sm);
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+}
+.aw-step__name {
+  margin: 4px 0 0;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-tight);
   color: var(--text-body);
 }
-.aw-work__link svg {
-  width: 14px;
-  height: 14px;
-  transition: transform var(--dur-1) var(--ease-out);
-}
-.aw-work:not(.is-static):hover .aw-work__link svg {
-  transform: translate(2px, -2px);
+.aw-step__desc {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: var(--leading-body);
+  text-wrap: pretty;
 }
 
 /* ---------- faq ---------- */
@@ -595,7 +604,10 @@
   }
 }
 @media (max-width: 900px) {
-  .aw-works {
+  .aw-feats {
+    grid-template-columns: 1fr;
+  }
+  .aw-steps {
     grid-template-columns: 1fr;
   }
   .aw-hero__h {

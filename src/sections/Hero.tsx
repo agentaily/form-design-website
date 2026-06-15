@@ -10,9 +10,10 @@ import { useEffect, useState } from "react";
 import { useMessages } from "../i18n";
 import { GenCanvas, Typewriter } from "./heroDemo";
 
-// Where the "let's talk" CTA points. Not user-visible copy (it's an action
-// target); the address itself also appears as catalog text in Works / Footer.
-const CONTACT_MAILTO = "mailto:yarnb@foxmail.com";
+// Where the primary "start free" CTA points: the live Form Design app. Not
+// user-visible copy (it's an action target); the URL also appears as a labelled
+// link in the footer.
+const APP_URL = "https://form-design.agentaily.com/";
 
 function scrollToId(id: string) {
   const el = document.getElementById(id);
@@ -63,12 +64,12 @@ export function Hero() {
             variant="primary"
             size="lg"
             onClick={() => {
-              window.location.href = CONTACT_MAILTO;
+              window.open(APP_URL, "_blank", "noopener");
             }}
           >
             {hero.ctaPrimary}
           </Button>
-          <Button variant="secondary" size="lg" onClick={() => scrollToId("works")}>
+          <Button variant="secondary" size="lg" onClick={() => scrollToId("how")}>
             {hero.ctaSecondary}
           </Button>
         </div>
@@ -93,7 +94,7 @@ export function Hero() {
                 </div>
                 {phase === 1 ? (
                   <div className="aw-msg-in" key={"a" + active}>
-                    <Message role="assistant">
+                    <Message role="assistant" name={demo.assistant}>
                       <Reasoning duration="0.6s" steps={cur.steps} defaultOpen />
                       <p className="aw-asst-line">
                         <Typewriter text={cur.line} />

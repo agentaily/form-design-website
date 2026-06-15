@@ -7,17 +7,19 @@ import App from "../../src/App";
 // page. We assert user-visible copy (the hero CTAs, which are unique per locale)
 // rather than internal state, and drive the language toggle by clicking the
 // nav button whose label is the target locale code ("EN" while zh, "ZH" while en).
+// The CTAs are queried by button role so the footer's "Start free" link (same
+// copy, different element) doesn't collide.
 
 const feature = await loadFeature("features/switch-locale.feature");
 
 function expectChinese() {
-  expect(screen.getByText("聊聊合作")).toBeInTheDocument();
-  expect(screen.getByText("看看作品")).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: "开始使用" })).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: "看看怎么用" })).toBeInTheDocument();
 }
 
 function expectEnglish() {
-  expect(screen.getByText("Let's talk")).toBeInTheDocument();
-  expect(screen.getByText("See work")).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: "Start free" })).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: "See how it works" })).toBeInTheDocument();
 }
 
 function switchLanguage(targetCode: "EN" | "ZH") {

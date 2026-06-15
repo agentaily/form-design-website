@@ -1,27 +1,30 @@
 {
   "meta": {
-    "title": "Agentaily · 聊天 × 万物"
+    "title": "Form Design — 聊一句，就有一张表单"
   },
   "nav": {
+    "brand": "Form Design",
     "links": [
-      { "label": "作品", "href": "#works" },
+      { "label": "能力", "href": "#features" },
+      { "label": "怎么用", "href": "#how" },
       { "label": "FAQ", "href": "#faq" }
     ],
     "switchLang": "English",
     "toggleTheme": "切换主题"
   },
   "hero": {
-    "badge": "聊天 × 万物",
-    "prefix": "聊天，",
-    "phrases": ["生成表单", "设计工具", "构建应用", "造点东西"],
-    "sub": "会聊天、有审美、懂需求，就能得到你想要的一切。",
-    "ctaPrimary": "聊聊合作",
-    "ctaSecondary": "看看作品"
+    "badge": "对话生成表单",
+    "prefix": "聊一句，",
+    "phrases": ["就有一张表单", "就能收集回复", "就发布上线"],
+    "sub": "像聊天一样说出你的需求，Form Design 帮你把表单设计出来——边聊边改字段，一键发布，回复自动收上来。",
+    "ctaPrimary": "开始使用",
+    "ctaSecondary": "看看怎么用"
   },
   "demo": {
     "live": "LIVE",
     "previewLabel": "生成产物预览（抽象）",
     "model": "DeepSeek",
+    "assistant": "Form Design",
     "items": [
       {
         "key": "form",
@@ -32,17 +35,17 @@
       },
       {
         "key": "dash",
-        "q": "做一个运营数据看板",
-        "steps": ["确认要看的指标", "选图表：趋势 + 关键数", "排好布局 · 实时刷新"],
-        "line": "看板搭好了，指标和图表都能随时换。",
-        "ph": "比如「加一个转化率」…"
+        "q": "把收到的回复做成汇总",
+        "steps": ["拉取已收集的回复", "按题目统计 · 出图", "实时刷新 · 可导出"],
+        "line": "汇总做好了，新回复进来会自动更新。",
+        "ph": "比如「导出为 Excel」…"
       },
       {
         "key": "flow",
-        "q": "搭一个请假审批流",
-        "steps": ["梳理审批节点", "申请 → 主管 → HR", "补上通过 / 驳回分支"],
-        "line": "流程接好了，节点顺序随你调。",
-        "ph": "比如「加一级总监审批」…"
+        "q": "做一个分步填的申请表",
+        "steps": ["拆成几页来填", "基本信息 → 详情 → 确认", "加上进度条 · 可返回"],
+        "line": "分步表单接好了，页面顺序随你调。",
+        "ph": "比如「加一页上传附件」…"
       },
       {
         "key": "survey",
@@ -53,80 +56,95 @@
       }
     ]
   },
-  "works": {
-    "label": "Works",
-    "title": "近期作品",
-    "subtitle": "每一个，都为了解决某个场景里的实际问题。",
+  "features": {
+    "label": "Features",
+    "title": "它能做什么",
+    "subtitle": "把「设计表单」这件事，变成一段对话。",
     "items": [
       {
-        "status": "ok",
-        "statusLabel": "已上线",
-        "featured": true,
-        "name": "Form Design",
-        "zh": "聊天生成在线表单",
-        "desc": "说一句话，得到一张能收数据的在线表单。聊着改字段，发链接、扫码即填，回复自动汇总。",
-        "href": "https://form-design.agentaily.com/",
-        "link": "form-design.agentaily.com"
+        "icon": "message",
+        "name": "对话生成",
+        "desc": "一句话描述你要收什么，AI 当场拼出一张能用的表单——字段、题型、校验都给你配好。"
       },
       {
-        "status": "soon",
-        "statusLabel": "筹备中",
-        "name": "下一个",
-        "zh": "更多「聊天 × 万物」",
-        "desc": "同样的方式，换一个东西。还在打磨，先把表单做好。想知道是什么？保持关注。",
-        "href": null,
-        "link": "敬请期待"
+        "icon": "spark",
+        "name": "AI 帮你设计",
+        "desc": "不知道该放哪些字段？交给它。按场景推断字段、选对题型、补上必填与格式校验。"
       },
       {
-        "status": "custom",
-        "statusLabel": "可定制",
-        "name": "你的点子",
-        "zh": "想要一个聊天驱动的工具？",
-        "desc": "如果你心里已经有个想做的东西——说需求，我来把它做出来。从一句话开始。",
-        "href": "mailto:yarnb@foxmail.com",
-        "link": "聊聊你的想法"
+        "icon": "pen",
+        "name": "随聊随改",
+        "desc": "改一版只需再说一句。「手机号设为必填」「加一道评分题」——边聊边改，所见即所得。"
+      },
+      {
+        "icon": "inbox",
+        "name": "发布即收集",
+        "desc": "一键发布，拿到链接和二维码；扫码即填，回复自动汇总成表，随时导出。"
+      }
+    ]
+  },
+  "how": {
+    "label": "How it works",
+    "title": "三步，从一句话到能收数据",
+    "steps": [
+      {
+        "n": "01",
+        "name": "说需求",
+        "desc": "用大白话讲清你要收什么：报名、问卷、点单、反馈……一句话就够。"
+      },
+      {
+        "n": "02",
+        "name": "边聊边改",
+        "desc": "AI 生成初版，你接着聊着调字段、改题型、设必填，直到顺手。"
+      },
+      {
+        "n": "03",
+        "name": "发布收数据",
+        "desc": "满意就发布。分享链接或二维码，回复实时收进来，导出随你。"
       }
     ]
   },
   "faq": {
     "label": "FAQ",
-    "title": "关于合作，常被问到的",
+    "title": "关于 Form Design，常被问到的",
     "items": [
       {
         "id": "q1",
-        "title": "你接什么样的项目？",
-        "content": "聊天驱动的小工具、Agent、内部流程工具最合适——能用一句话描述、用对话操作的那类。太大的系统我一个人吃不下，但可以帮你想清楚要不要做、怎么做。"
+        "title": "怎么生成一张表单？",
+        "content": "把你要收的信息用大白话说清楚就行，比如「做一个活动报名表，要姓名、手机号、参加场次」。Form Design 会识别场景、推断字段、配好题型和校验，当场给你一版能用的表单。"
       },
       {
         "id": "q2",
-        "title": "怎么收费？",
-        "content": "看范围聊。小工具可能就是个朋友价甚至顺手做；正经定制按项目报。模型调用一般走 BYOK（你自己的 Key），这部分钱不经我手。"
+        "title": "生成之后还能改吗？",
+        "content": "能，随时改。继续聊就行——「手机号设为必填」「把场次改成多选」「加一道留言题」。改动所见即所得，不满意可以一直调到顺手。"
       },
       {
         "id": "q3",
-        "title": "多久能做好？",
-        "content": "我是一个人，慢工出细活。简单的几天，复杂的按方案排期。我宁愿说实话排期，也不想答应做不到的时间。"
+        "title": "发布后怎么收数据？",
+        "content": "一键发布后你会拿到一个填写链接和二维码，分享出去，任何人在手机或电脑上都能填。回复实时收进后台，自动汇总成表，可随时导出。"
       },
       {
         "id": "q4",
-        "title": "我只是有个想法，还没想清楚，也能找你吗？",
-        "content": "当然。把模糊的想法聊清楚，本来就是合作的第一步。哪怕最后结论是「这个不值得做」，也算帮你省了时间。"
+        "title": "支持哪些字段和题型？",
+        "content": "常见的都支持：单行/多行文本、手机号、邮箱、单选、多选、下拉、评分、日期、文件上传等，还能设必填、格式校验和逻辑跳转。"
       },
       {
         "id": "q5",
-        "title": "「聊天 × 万物」后面还有什么？",
-        "content": "表单是第一站。接下来会用同样的方式做更多小东西。具体是什么先卖个关子——做好一个，再说下一个。"
+        "title": "填表的人需要注册或安装吗？",
+        "content": "不需要。收到链接或扫码就能直接在浏览器里填，无需注册、无需安装。开始使用可直接打开 form-design.agentaily.com。"
       }
     ]
   },
   "footer": {
-    "tagline": "聊天，改变世界。",
+    "tagline": "聊一句，就有一张表单。",
     "cols": [
       {
-        "head": "作品",
+        "head": "产品",
         "links": [
-          { "label": "Form Design · 已上线", "href": "https://form-design.agentaily.com/" },
-          { "label": "更多 · 筹备中", "href": null }
+          { "label": "能力", "href": "#features" },
+          { "label": "怎么用", "href": "#how" },
+          { "label": "常见问题", "href": "#faq" },
+          { "label": "开始使用", "href": "https://form-design.agentaily.com/" }
         ]
       },
       {
@@ -134,7 +152,6 @@
         "links": [
           { "label": "yarnb@foxmail.com", "href": "mailto:yarnb@foxmail.com" },
           { "label": "微信 ybkeepgoing", "href": null },
-          { "label": "X @yarnb_sayhi", "href": "https://x.com/yarnb_sayhi" },
           { "label": "github.com/yarnovo", "href": "https://github.com/yarnovo" }
         ]
       }

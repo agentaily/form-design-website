@@ -1,27 +1,30 @@
 {
   "meta": {
-    "title": "Agentaily · Chat × Everything"
+    "title": "Form Design — Just say it, and there's your form"
   },
   "nav": {
+    "brand": "Form Design",
     "links": [
-      { "label": "Works", "href": "#works" },
+      { "label": "Features", "href": "#features" },
+      { "label": "How", "href": "#how" },
       { "label": "FAQ", "href": "#faq" }
     ],
     "switchLang": "中文",
     "toggleTheme": "Toggle theme"
   },
   "hero": {
-    "badge": "Chat × Everything",
-    "prefix": "Chat to",
-    "phrases": ["build forms", "design tools", "ship apps", "make anything"],
-    "sub": "If you can chat, have taste, and know what you need — you can get anything.",
-    "ctaPrimary": "Let's talk",
-    "ctaSecondary": "See work"
+    "badge": "Forms from conversation",
+    "prefix": "Just say it,",
+    "phrases": ["get a form", "collect replies", "publish it live"],
+    "sub": "Describe what you need like a chat, and Form Design designs the form for you — edit fields as you talk, publish in one click, replies roll in automatically.",
+    "ctaPrimary": "Start free",
+    "ctaSecondary": "See how it works"
   },
   "demo": {
     "live": "LIVE",
     "previewLabel": "Generated artifact preview",
     "model": "DeepSeek",
+    "assistant": "Form Design",
     "items": [
       {
         "key": "form",
@@ -32,17 +35,21 @@
       },
       {
         "key": "dash",
-        "q": "Build an ops dashboard",
-        "steps": ["Pick the metrics", "Charts: trend + KPIs", "Layout set · live refresh"],
-        "line": "Dashboard's ready — swap metrics and charts anytime.",
-        "ph": "e.g. 'add conversion rate'…"
+        "q": "Summarize the responses I collected",
+        "steps": [
+          "Pull collected replies",
+          "Tally per question · chart",
+          "Live refresh · exportable"
+        ],
+        "line": "Summary's ready — new replies update it automatically.",
+        "ph": "e.g. 'export to Excel'…"
       },
       {
         "key": "flow",
-        "q": "Set up a leave approval flow",
-        "steps": ["Map the steps", "Request → manager → HR", "Add approve / reject branches"],
-        "line": "Flow's wired up — reorder steps however you like.",
-        "ph": "e.g. 'add a director step'…"
+        "q": "Make a multi-step application form",
+        "steps": ["Split into pages", "Basics → details → confirm", "Add progress bar · go back"],
+        "line": "Multi-step form is wired up — reorder pages however you like.",
+        "ph": "e.g. 'add an upload page'…"
       },
       {
         "key": "survey",
@@ -53,38 +60,51 @@
       }
     ]
   },
-  "works": {
-    "label": "Works",
-    "title": "Recent work",
-    "subtitle": "Each one solves a real problem in a real scenario.",
+  "features": {
+    "label": "Features",
+    "title": "What it does",
+    "subtitle": "It turns designing a form into a conversation.",
     "items": [
       {
-        "status": "ok",
-        "statusLabel": "Live",
-        "featured": true,
-        "name": "Form Design",
-        "zh": "Chat-generated online forms",
-        "desc": "Say a sentence, get an online form that collects data. Edit fields by chatting; share a link or QR to fill; responses auto-aggregate.",
-        "href": "https://form-design.agentaily.com/",
-        "link": "form-design.agentaily.com"
+        "icon": "message",
+        "name": "Generate by chat",
+        "desc": "Describe what you want to collect in one line; AI assembles a working form on the spot — fields, question types and validation all set up for you."
       },
       {
-        "status": "soon",
-        "statusLabel": "In the works",
-        "name": "Next up",
-        "zh": "More Chat × Everything",
-        "desc": "Same approach, a different thing. Still polishing — forms first. Curious? Stay tuned.",
-        "href": null,
-        "link": "Coming soon"
+        "icon": "spark",
+        "name": "AI designs it",
+        "desc": "Not sure which fields to include? Leave it to Form Design — it infers fields by scenario, picks the right question types, and adds required rules and format checks."
       },
       {
-        "status": "custom",
-        "statusLabel": "Custom",
-        "name": "Your idea",
-        "zh": "Want a chat-driven tool?",
-        "desc": "Already have something in mind? Tell me what you need and I'll build it. Starts with one sentence.",
-        "href": "mailto:yarnb@foxmail.com",
-        "link": "Tell me your idea"
+        "icon": "pen",
+        "name": "Edit as you chat",
+        "desc": "Need a tweak? Just say it. 'Make phone required', 'add a rating question' — edit by chatting, what you see is what you get."
+      },
+      {
+        "icon": "inbox",
+        "name": "Publish & collect",
+        "desc": "Publish in one click to get a link and QR code; anyone can scan and fill, replies auto-aggregate into a table, exportable anytime."
+      }
+    ]
+  },
+  "how": {
+    "label": "How it works",
+    "title": "Three steps, from a sentence to collecting data",
+    "steps": [
+      {
+        "n": "01",
+        "name": "Say what you need",
+        "desc": "Plainly say what you want to collect: signups, surveys, orders, feedback… one sentence is enough."
+      },
+      {
+        "n": "02",
+        "name": "Refine by chatting",
+        "desc": "AI generates a first draft; keep chatting to adjust fields, change question types and set required rules until it feels right."
+      },
+      {
+        "n": "03",
+        "name": "Publish & collect",
+        "desc": "Happy with it? Publish. Share a link or QR code, replies come in live, export whenever you like."
       }
     ]
   },
@@ -94,39 +114,41 @@
     "items": [
       {
         "id": "q1",
-        "title": "What kind of projects do you take?",
-        "content": "Chat-driven small tools, agents, and internal workflow tools fit best — the kind you can describe in a sentence and operate by conversation. I can't take on huge systems solo, but I can help you think through whether and how to build."
+        "title": "How do I generate a form?",
+        "content": "Just describe what you want to collect in plain words, e.g. 'make an event signup form with name, phone and session.' Form Design recognizes the scenario, infers the fields, sets up question types and validation, and gives you a working form on the spot."
       },
       {
         "id": "q2",
-        "title": "How do you charge?",
-        "content": "Depends on scope. Small tools might be a friend price or done on the side; serious custom work is quoted per project. Model calls usually go through BYOK (your own key), so that cost never passes through me."
+        "title": "Can I edit it after it's generated?",
+        "content": "Yes, anytime. Just keep chatting — 'make phone required,' 'change session to multi-select,' 'add a message question.' Edits are what-you-see-is-what-you-get; keep refining until it feels right."
       },
       {
         "id": "q3",
-        "title": "How long does it take?",
-        "content": "I work solo — good things take time. Simple ones: a few days; complex ones are scheduled by plan. I'd rather give an honest timeline than promise one I can't meet."
+        "title": "How do I collect responses after publishing?",
+        "content": "After one-click publish you get a fill-in link and a QR code; share them and anyone can fill on phone or desktop. Responses come into the backend in real time, auto-aggregate into a table, and can be exported anytime."
       },
       {
         "id": "q4",
-        "title": "I just have an idea, not fully thought out — can I still reach out?",
-        "content": "Of course. Talking a fuzzy idea into clarity is the first step anyway. Even if the conclusion is 'not worth building,' that saved you time."
+        "title": "What field and question types are supported?",
+        "content": "All the common ones: single/multi-line text, phone, email, single choice, multiple choice, dropdown, rating, date, file upload and more — plus required rules, format validation and conditional logic."
       },
       {
         "id": "q5",
-        "title": "What's next for Chat × Everything?",
-        "content": "Forms are the first stop. Next I'll make more small things the same way. What exactly? A little secret — finish one, then talk about the next."
+        "title": "Do respondents need to sign up or install anything?",
+        "content": "No. With the link or QR code they fill right in the browser — no signup, no install. To get started yourself, just open form-design.agentaily.com."
       }
     ]
   },
   "footer": {
-    "tagline": "Chat, change the world.",
+    "tagline": "Just say it — and there's your form.",
     "cols": [
       {
-        "head": "Works",
+        "head": "Product",
         "links": [
-          { "label": "Form Design · Live", "href": "https://form-design.agentaily.com/" },
-          { "label": "More · In the works", "href": null }
+          { "label": "Features", "href": "#features" },
+          { "label": "How it works", "href": "#how" },
+          { "label": "FAQ", "href": "#faq" },
+          { "label": "Start free", "href": "https://form-design.agentaily.com/" }
         ]
       },
       {
@@ -134,7 +156,6 @@
         "links": [
           { "label": "yarnb@foxmail.com", "href": "mailto:yarnb@foxmail.com" },
           { "label": "WeChat ybkeepgoing", "href": null },
-          { "label": "X @yarnb_sayhi", "href": "https://x.com/yarnb_sayhi" },
           { "label": "github.com/yarnovo", "href": "https://github.com/yarnovo" }
         ]
       }

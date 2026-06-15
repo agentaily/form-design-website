@@ -4,7 +4,7 @@
 
 > 这是**部署的站,不是发布的包**:合并到 `main` 即由 GitHub Actions 部署到 Cloudflare Pages(CF 项目 + 密钥配好后)。它不发 npm、没有后端 / workers / D1。
 
-> ⚠️ **脚手架状态**:本仓初始由 [`agentaily/official-website`](https://github.com/agentaily/official-website) 复制而来(同设计血缘:Form Design 官网设计 = agentaily 官网设计的 Remix)。**页面内容仍是 official-website 占位**,待用 form-design 设计项目(`610a9c08`)的 handoff 经 `design-sync` 落地后才是 Form Design 自己的内容。部署工作流暂为 `workflow_dispatch` 手动触发(CF Pages 项目/密钥配好后恢复 push 自动部署)。详见 [DESIGN.md](./DESIGN.md)。
+> ℹ️ **血缘**:本仓初始由 [`agentaily/official-website`](https://github.com/agentaily/official-website) 复制而来(同设计血缘:Form Design 官网设计 = agentaily 官网设计的 Remix)。**页面内容已对齐 Form Design v1**(`Mec6_8u5PVlOib7k0rTwLA` handoff,见 `.design-baseline/`)。部署工作流暂为 `workflow_dispatch` 手动触发(CF Pages 项目/密钥配好后恢复 push 自动部署)。详见 [DESIGN.md](./DESIGN.md)。
 
 ## 怎么跑
 
@@ -20,7 +20,7 @@ npm run format       # prettier --write .
 
 「做完」一条命令验完:`npm run typecheck && npm test && npm run build`。
 
-## 这是什么 / 长什么样(目标)
+## 这是什么 / 长什么样
 
 - **双语落地页**:Nav → Hero(对话生成表单价值主张 + 「开始使用」+ 演示窗)→ 能力(Features)→ 怎么用(三步)→ FAQ → 页脚。视觉/交互设计见 [DESIGN.md](./DESIGN.md)。
 - **品牌 = Form Design**;深色主题默认;i18n 默认中文、可切英文。

@@ -1,12 +1,14 @@
 import { BrandMark } from "@agentaily/design-system";
 import { useMessages } from "../i18n";
 
-// 页脚 / Footer — a centered container (not full-bleed): brand + tagline, link
-// columns, then a centered legal row showing company + ICP filing. The ICP
-// number is a Chinese legal identifier (kept verbatim in both locales) and
-// links to the MIIT registry.
+// 页脚 / Footer — a centered container (not full-bleed): brand + product
+// tagline, link columns, then a centered legal row showing company + ICP filing.
+// Per DESIGN.md the *bottom bar* carries no corporate slogan (just the legal
+// row); the brand block keeps the product tagline. The ICP number is a Chinese
+// legal identifier (kept verbatim in both locales) and links to the MIIT
+// registry.
 export function SiteFooter() {
-  const { footer } = useMessages();
+  const { nav, footer } = useMessages();
   return (
     <footer className="aw-foot">
       <div
@@ -23,7 +25,8 @@ export function SiteFooter() {
         >
           <div style={{ maxWidth: 300, display: "flex", flexDirection: "column", gap: 12 }}>
             <span className="aw-brand">
-              <BrandMark size={18} wordmark />
+              <BrandMark size={18} />
+              <span className="aw-brand__word">{nav.brand}</span>
             </span>
             <p
               style={{

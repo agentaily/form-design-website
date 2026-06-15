@@ -26,16 +26,18 @@ export interface DemoItem {
   ph: string;
 }
 
-export interface WorkItem {
-  /** Drives the badge variant: ok | soon | custom. */
-  status: string;
-  statusLabel: string;
-  featured?: boolean;
+export interface FeatureItem {
+  /** DS Icon name for the feature glyph (message | spark | pen | box). */
+  icon: string;
   name: string;
-  zh: string;
   desc: string;
-  href: string | null;
-  link: string;
+}
+
+export interface HowStep {
+  /** Step ordinal shown as a mono label, e.g. "01". */
+  n: string;
+  name: string;
+  desc: string;
 }
 
 export interface FaqItem {
@@ -56,7 +58,7 @@ export interface FooterCol {
 
 export interface Messages {
   meta: { title: string };
-  nav: { links: NavLink[]; switchLang: string; toggleTheme: string };
+  nav: { brand: string; links: NavLink[]; switchLang: string; toggleTheme: string };
   hero: {
     badge: string;
     prefix: string;
@@ -65,10 +67,19 @@ export interface Messages {
     ctaPrimary: string;
     ctaSecondary: string;
   };
-  demo: { live: string; previewLabel: string; model: string; items: DemoItem[] };
-  works: { label: string; title: string; subtitle: string; items: WorkItem[] };
+  demo: {
+    live: string;
+    previewLabel: string;
+    model: string;
+    /** Brand name shown as the demo assistant's author label (DS Message `name`). */
+    assistant: string;
+    items: DemoItem[];
+  };
+  features: { label: string; title: string; subtitle: string; items: FeatureItem[] };
+  how: { label: string; title: string; steps: HowStep[] };
   faq: { label: string; title: string; items: FaqItem[] };
   footer: {
+    /** Product tagline shown under the brand in the footer's big block. */
     tagline: string;
     cols: FooterCol[];
     company: string;
