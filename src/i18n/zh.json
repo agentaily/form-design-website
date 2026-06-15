@@ -24,6 +24,7 @@
     "live": "LIVE",
     "previewLabel": "生成产物预览（抽象）",
     "model": "DeepSeek",
+    "assistant": "Form Design",
     "items": [
       {
         "key": "form",
@@ -76,7 +77,7 @@
         "desc": "改一版只需再说一句。「手机号设为必填」「加一道评分题」——边聊边改，所见即所得。"
       },
       {
-        "icon": "box",
+        "icon": "inbox",
         "name": "发布即收集",
         "desc": "一键发布，拿到链接和二维码；扫码即填，回复自动汇总成表，随时导出。"
       }
@@ -135,7 +136,6 @@
     ]
   },
   "footer": {
-    "tagline": "聊一句，就有一张表单。",
     "cols": [
       {
         "head": "产品",

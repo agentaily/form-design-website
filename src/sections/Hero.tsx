@@ -94,7 +94,7 @@ export function Hero() {
                 </div>
                 {phase === 1 ? (
                   <div className="aw-msg-in" key={"a" + active}>
-                    <Message role="assistant">
+                    <Message role="assistant" name={demo.assistant}>
                       <Reasoning duration="0.6s" steps={cur.steps} defaultOpen />
                       <p className="aw-asst-line">
                         <Typewriter text={cur.line} />

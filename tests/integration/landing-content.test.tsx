@@ -39,3 +39,12 @@ test("the hero badge frames the form-from-conversation value prop", () => {
   render(<App />);
   expect(screen.getByText("对话生成表单")).toBeInTheDocument();
 });
+
+test("the hero demo's assistant turn is branded Form Design, not the DS default", async () => {
+  render(<App />);
+  // The assistant reply is staged in shortly after the user turn; its name
+  // header must carry the product brand, not the DS Message default
+  // ("Agentaily") that leaks when no `name` is passed.
+  const name = await screen.findByText("Form Design", { selector: ".ax-msg__name" });
+  expect(name.textContent).toBe("Form Design");
+});

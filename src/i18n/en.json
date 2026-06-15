@@ -24,6 +24,7 @@
     "live": "LIVE",
     "previewLabel": "Generated artifact preview",
     "model": "DeepSeek",
+    "assistant": "Form Design",
     "items": [
       {
         "key": "form",
@@ -80,7 +81,7 @@
         "desc": "Need a tweak? Just say it. 'Make phone required', 'add a rating question' — edit by chatting, what you see is what you get."
       },
       {
-        "icon": "box",
+        "icon": "inbox",
         "name": "Publish & collect",
         "desc": "Publish in one click to get a link and QR code; anyone can scan and fill, replies auto-aggregate into a table, exportable anytime."
       }
@@ -139,7 +140,6 @@
     ]
   },
   "footer": {
-    "tagline": "Just say it — and there's your form.",
     "cols": [
       {
         "head": "Product",

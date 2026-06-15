@@ -67,12 +67,18 @@ export interface Messages {
     ctaPrimary: string;
     ctaSecondary: string;
   };
-  demo: { live: string; previewLabel: string; model: string; items: DemoItem[] };
+  demo: {
+    live: string;
+    previewLabel: string;
+    model: string;
+    /** Brand name shown as the demo assistant's author label (DS Message `name`). */
+    assistant: string;
+    items: DemoItem[];
+  };
   features: { label: string; title: string; subtitle: string; items: FeatureItem[] };
   how: { label: string; title: string; steps: HowStep[] };
   faq: { label: string; title: string; items: FaqItem[] };
   footer: {
-    tagline: string;
     cols: FooterCol[];
     company: string;
     /** ICP filing number — a Chinese legal identifier, kept verbatim in both locales. */
