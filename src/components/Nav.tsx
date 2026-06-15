@@ -13,8 +13,12 @@ export function Nav({ theme, onToggleTheme }: { theme: Theme; onToggleTheme: () 
 
   return (
     <nav className="aw-nav">
-      <a className="aw-brand" href="#top" aria-label="Agentaily">
-        <BrandMark size={20} wordmark />
+      {/* DS BrandMark supplies the mark glyph only; the wordmark is this product's
+          name ("Form Design"), so we render it ourselves rather than the DS
+          built-in "agentaily" wordmark. */}
+      <a className="aw-brand" href="#top" aria-label={m.nav.brand}>
+        <BrandMark size={20} />
+        <span className="aw-brand__word">{m.nav.brand}</span>
       </a>
       <span className="aw-nav__links">
         {m.nav.links.map((l) => (

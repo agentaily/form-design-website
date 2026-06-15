@@ -8,7 +8,7 @@
 ## 设计在哪做(来源)
 
 - **Claude Design 项目**:projectId = `610a9c08-1c26-419d-989b-2270e0571ba0`(名 `form-design-website`)。**它是从 agentaily 官网设计项目 `1c110e32-5467-4978-883e-36ae10f3bd1c` 复制(Remix)后,重定位到 Form Design 这一个产品**(同视觉语言、换品牌+内容)。
-- **代码脚手架**:本仓初始由 `agentaily/official-website` 复制而来(同 Vite/React/TS + `@agentaily/design-system` + CF Pages 套路),**页面内容待用 form-design 设计的 handoff 经 `design-sync` 落地**(首个 handoff 待第一次 design-sync 时填,届时刷 `.design-baseline/`)。
+- **代码脚手架**:本仓初始由 `agentaily/official-website` 复制而来(同 Vite/React/TS + `@agentaily/design-system` + CF Pages 套路),**页面内容已对齐 Form Design v1**(handoff `Mec6_8u5PVlOib7k0rTwLA`,`.design-baseline/` 已刷)。
 - 流程:在 claude.ai/design 这个项目里设计/改页面 → 复制 handoff 链接 → `design-sync` 三路合并进代码。取法/合并细节见 `design-via-claude-design` + `design-sync` skill。**别和上游组件库 (`@agentaily/design-system`) 的设计项目搞混**(那个是设计组件本身的;本仓只在缺组件/缺 seam 时往那反馈,**叫人**)。
 
 ## 设计原则 / 交互(form-design 官网定位)
@@ -29,16 +29,16 @@
 
 ## 页面 / 界面清单(+ 设计状态)
 
-> ⚠️ **当前代码是 official-website 脚手架**(区块仍为 Nav/Hero/Works/FAQ/Footer、内容是 agentaily 的占位)。下表是 **form-design 官网的目标结构**,待第一次 `design-sync`(handoff `610a9c08` 项目)落地后对齐 + 刷新本表。
+> ✅ **已对齐 v1**(handoff `Mec6_8u5PVlOib7k0rTwLA`,`.design-baseline/` 已刷)。下表的「现状」即当前代码区块。
 
 | 区块                                                  | 目标                            | 现状                               |
 | ----------------------------------------------------- | ------------------------------- | ---------------------------------- |
-| **Nav**(BrandMark=Form Design + 锚点 + 语言/主题切换) | 能力 / 怎么用 / FAQ             | 脚手架(official 的「作品/FAQ」)    |
-| **Hero**(对话生成表单价值主张 + 「开始使用」+ 演示窗) | 打字滚动短语围绕做表单          | 脚手架                             |
-| **能力 (Features)**                                   | 产品能力                        | 待 design-sync(现为「作品 Works」) |
-| **怎么用 (How it works)**                             | 三步                            | 待 design-sync                     |
-| **FAQ**                                               | Form Design 常见问题            | 脚手架(合作向)                     |
-| **页脚 (Footer)**                                     | 品牌/链接 + 底栏版权/备案号居中 | 脚手架                             |
+| **Nav**(BrandMark=Form Design + 锚点 + 语言/主题切换) | 能力 / 怎么用 / FAQ             | ✅ 已对齐 v1(能力 / 怎么用 / FAQ)  |
+| **Hero**(对话生成表单价值主张 + 「开始使用」+ 演示窗) | 打字滚动短语围绕做表单          | ✅ 已对齐 v1                       |
+| **能力 (Features)**                                   | 产品能力                        | ✅ 已对齐 v1(四卡能力网格)         |
+| **怎么用 (How it works)**                             | 三步                            | ✅ 已对齐 v1(三步)                 |
+| **FAQ**                                               | Form Design 常见问题            | ✅ 已对齐 v1(Form Design 常见问题) |
+| **页脚 (Footer)**                                     | 品牌/链接 + 底栏版权/备案号居中 | ✅ 已对齐 v1                       |
 
 ## 设计 ↔ 代码映射
 

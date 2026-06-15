@@ -6,7 +6,7 @@ import { useMessages } from "../i18n";
 // number is a Chinese legal identifier (kept verbatim in both locales) and
 // links to the MIIT registry.
 export function SiteFooter() {
-  const { footer } = useMessages();
+  const { nav, footer } = useMessages();
   return (
     <footer className="aw-foot">
       <div
@@ -23,7 +23,8 @@ export function SiteFooter() {
         >
           <div style={{ maxWidth: 300, display: "flex", flexDirection: "column", gap: 12 }}>
             <span className="aw-brand">
-              <BrandMark size={18} wordmark />
+              <BrandMark size={18} />
+              <span className="aw-brand__word">{nav.brand}</span>
             </span>
             <p
               style={{
