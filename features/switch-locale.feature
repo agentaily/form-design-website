@@ -3,9 +3,13 @@ Feature: 访客切换 en/zh 语言
   我想在英文和中文之间切换
   以便用我习惯的语言阅读落地页
 
-  Scenario: 默认中文
+  Scenario: 默认中文(中文浏览器)
     Given 访客首次打开官网
     Then 落地页文案以中文显示
+
+  Scenario: 英文浏览器默认英文
+    Given 访客的浏览器语言为英文且首次打开官网
+    Then 落地页文案以英文显示
 
   Scenario: 切到英文
     Given 访客打开官网
