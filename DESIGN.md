@@ -31,14 +31,14 @@
 
 > ⚠️ **当前代码是 official-website 脚手架**(区块仍为 Nav/Hero/Works/FAQ/Footer、内容是 agentaily 的占位)。下表是 **form-design 官网的目标结构**,待第一次 `design-sync`(handoff `610a9c08` 项目)落地后对齐 + 刷新本表。
 
-| 区块 | 目标 | 现状 |
-| --- | --- | --- |
-| **Nav**(BrandMark=Form Design + 锚点 + 语言/主题切换) | 能力 / 怎么用 / FAQ | 脚手架(official 的「作品/FAQ」) |
-| **Hero**(对话生成表单价值主张 + 「开始使用」+ 演示窗) | 打字滚动短语围绕做表单 | 脚手架 |
-| **能力 (Features)** | 产品能力 | 待 design-sync(现为「作品 Works」) |
-| **怎么用 (How it works)** | 三步 | 待 design-sync |
-| **FAQ** | Form Design 常见问题 | 脚手架(合作向) |
-| **页脚 (Footer)** | 品牌/链接 + 底栏版权/备案号居中 | 脚手架 |
+| 区块                                                  | 目标                            | 现状                               |
+| ----------------------------------------------------- | ------------------------------- | ---------------------------------- |
+| **Nav**(BrandMark=Form Design + 锚点 + 语言/主题切换) | 能力 / 怎么用 / FAQ             | 脚手架(official 的「作品/FAQ」)    |
+| **Hero**(对话生成表单价值主张 + 「开始使用」+ 演示窗) | 打字滚动短语围绕做表单          | 脚手架                             |
+| **能力 (Features)**                                   | 产品能力                        | 待 design-sync(现为「作品 Works」) |
+| **怎么用 (How it works)**                             | 三步                            | 待 design-sync                     |
+| **FAQ**                                               | Form Design 常见问题            | 脚手架(合作向)                     |
+| **页脚 (Footer)**                                     | 品牌/链接 + 底栏版权/备案号居中 | 脚手架                             |
 
 ## 设计 ↔ 代码映射
 
