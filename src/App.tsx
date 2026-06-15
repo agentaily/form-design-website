@@ -1,4 +1,6 @@
-import { LocaleProvider } from "./i18n";
+import { useEffect } from "react";
+import { ThemeProvider } from "@agentaily/web-kit";
+import { LocaleProvider, useMessages } from "./i18n";
 import { Nav } from "./components/Nav";
 import { SiteFooter } from "./components/SiteFooter";
 import { Faq } from "./sections/Faq";
@@ -6,17 +8,22 @@ import { Features } from "./sections/Features";
 import { Hero } from "./sections/Hero";
 import { HowTo } from "./sections/HowTo";
 import { useReveal } from "./lib/useReveal";
-import { useTheme } from "./lib/useTheme";
 
 // Single-page landing: Nav → Hero → Features → How it works → FAQ → Footer.
 // Features / HowTo / FAQ are wrapped in `.aw-rise` for the scroll-reveal entrance.
 function Landing() {
-  const { theme, toggle } = useTheme();
+  const m = useMessages();
   useReveal();
+
+  // Keep the tab title in sync with the active locale (web-kit handles <html lang>;
+  // the document title is product-specific, so we mirror it here).
+  useEffect(() => {
+    document.title = m.meta.title;
+  }, [m]);
 
   return (
     <div className="aw">
-      <Nav theme={theme} onToggleTheme={toggle} />
+      <Nav />
       <Hero />
       <div className="aw-rise">
         <Features />
@@ -32,10 +39,16 @@ function Landing() {
   );
 }
 
+// Theme + locale runtime come from @agentaily/web-kit: ThemeProvider applies the
+// resolved theme to <html data-theme> (dark by default, cross-subdomain persisted);
+// LocaleProvider supplies the i18n context. FOUC is prevented by themeInitScript()
+// injected into index.html's <head> (see vite.config.js).
 export default function App() {
   return (
-    <LocaleProvider>
-      <Landing />
-    </LocaleProvider>
+    <ThemeProvider defaultTheme="dark">
+      <LocaleProvider>
+        <Landing />
+      </LocaleProvider>
+    </ThemeProvider>
   );
 }

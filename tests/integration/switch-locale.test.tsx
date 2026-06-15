@@ -26,15 +26,35 @@ function switchLanguage(targetCode: "EN" | "ZH") {
   fireEvent.click(screen.getByText(targetCode));
 }
 
+// Simulate the visitor's browser language. web-kit reads navigator.language to
+// pick the initial locale, so this must be set *before* rendering <App />.
+function setBrowserLanguage(value: string) {
+  Object.defineProperty(window.navigator, "language", { value, configurable: true });
+}
+
 describeFeature(feature, ({ Scenario, AfterEachScenario }) => {
   AfterEachScenario(() => cleanup());
 
-  Scenario("默认中文", ({ Given, Then }) => {
+  // The test setup pins navigator.language to "zh-CN" before each step, so the
+  // ambient default visitor is a Chinese-browser one here.
+  Scenario("默认中文(中文浏览器)", ({ Given, Then }) => {
     Given("访客首次打开官网", () => {
       render(<App />);
     });
     Then("落地页文案以中文显示", () => {
       expectChinese();
+    });
+  });
+
+  // web-kit detects the locale from navigator.language (→ zh fallback), so an
+  // English-browser visitor lands on English without touching the toggle.
+  Scenario("英文浏览器默认英文", ({ Given, Then }) => {
+    Given("访客的浏览器语言为英文且首次打开官网", () => {
+      setBrowserLanguage("en-US");
+      render(<App />);
+    });
+    Then("落地页文案以英文显示", () => {
+      expectEnglish();
     });
   });
 

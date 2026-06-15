@@ -10,6 +10,8 @@
 - **落地页脚手架(PR #1)** —— 从 agentaily 官网 handoff `8Q3zKq` 落地单页骨架:Nav → Hero(含聊天 demo)→ FAQ → 页脚,全程消费 DS 组件、双语、深/浅可切、滚动入场。
 - **Form Design v1 内容(`feat/form-design-v1-content`)** —— 把 form-design 官网设计(handoff `Mec6_8u5PVlOib7k0rTwLA`,agentaily 官网设计的 Remix)落地:品牌→Form Design;区块为 Nav → Hero(对话生成表单价值主张 +「开始使用」指向 form-design.agentaily.com + 演示窗)→ **能力 (Features)** → **怎么用 (How it works,三步)** → FAQ(Form Design 常见问题)→ 页脚。文案全在 `en.json` / `zh.json`。设计真相见 [DESIGN.md](./DESIGN.md),基线 `.design-baseline/`,行为契约见 [`features/`](./features)。
 
+- **运行时接入 `@agentaily/web-kit`(PR #3)** —— 删本仓手搓的 `src/lib/useTheme.ts` + `src/i18n` provider,换成 web-kit 的 `ThemeProvider` / `createI18n`(catalog 原样注入)/ `useTheme` / `useLocale` / `useMessages`;主题与 locale 经**跨子域 cookie** 持久化(`*.agentaily.com` 全站一致),防 FOUC 用 `themeInitScript()` 经 Vite 插件注入 `index.html`。行为:语言随浏览器探测、兜底中文,切换不 reload。视觉不变(仍归 DS)。细节见 [SPEC.md](./SPEC.md) §横切关注。
+
 ## 🚧 进行中
 
 -（暂无)

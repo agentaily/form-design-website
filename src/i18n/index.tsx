@@ -1,12 +1,15 @@
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import { createI18n } from "@agentaily/web-kit";
 import en from "./en.json";
 import zh from "./zh.json";
 
-// Bilingual (en/zh) i18n seam for the landing page. All user-visible copy lives
-// in en.json / zh.json (the message catalogs); components read it through
-// useMessages(). The explicit `Messages` interface below is the single shape both
-// catalogs are checked against — a missing/typo'd/extra key is a compile error,
-// which keeps the two languages structurally in lock-step.
+// Bilingual (en/zh) i18n seam for the landing page. The *mechanism* (provider,
+// locale state, cross-subdomain persistence, <html lang> sync, navigator
+// detection) is shared via @agentaily/web-kit's createI18n; this module only
+// injects the product's catalogs and the type contract they're checked against.
+// All user-visible copy lives in en.json / zh.json (the message catalogs),
+// read through useMessages(). The explicit `Messages` interface below is the
+// single shape both catalogs are checked against — a missing/typo'd/extra key is
+// a compile error, which keeps the two languages structurally in lock-step.
 
 export type Locale = "en" | "zh";
 export const LOCALES: Locale[] = ["en", "zh"];
@@ -89,48 +92,13 @@ export interface Messages {
   };
 }
 
+// Typed as Record<Locale, Messages> so createI18n binds useMessages() to the
+// `Messages` shape (and both catalogs are still checked against it at compile time).
 const catalogs: Record<Locale, Messages> = { en, zh };
 
-interface LocaleContextValue {
-  locale: Locale;
-  setLocale: (locale: Locale) => void;
-  m: Messages;
-}
-
-const LocaleContext = createContext<LocaleContextValue | null>(null);
-
-export function LocaleProvider({
-  children,
-  initialLocale = "zh",
-}: {
-  children: ReactNode;
-  initialLocale?: Locale;
-}) {
-  const [locale, setLocale] = useState<Locale>(initialLocale);
-
-  // Keep <html lang> and the tab title in sync with the active locale so
-  // assistive tech, the browser, and the tab all follow the language.
-  // (Document-level side effect; harmless in non-DOM test envs.)
-  useEffect(() => {
-    document.documentElement.setAttribute("lang", locale === "en" ? "en" : "zh");
-    document.title = catalogs[locale].meta.title;
-  }, [locale]);
-
-  const value = useMemo<LocaleContextValue>(
-    () => ({ locale, setLocale, m: catalogs[locale] }),
-    [locale],
-  );
-
-  return <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>;
-}
-
-export function useLocale(): LocaleContextValue {
-  const ctx = useContext(LocaleContext);
-  if (!ctx) throw new Error("useLocale must be used within a <LocaleProvider>");
-  return ctx;
-}
-
-/** The message catalog for the active locale: `const m = useMessages()`. */
-export function useMessages(): Messages {
-  return useLocale().m;
-}
+// Default locale is zh; web-kit additionally honors a persisted choice and the
+// visitor's navigator.language before falling back to this default.
+export const { LocaleProvider, useLocale, useMessages } = createI18n({
+  catalogs,
+  defaultLocale: "zh",
+});

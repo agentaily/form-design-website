@@ -22,8 +22,9 @@ Agentaily Form 的**官方落地页**:一个**纯静态前端站**,双语 (en/zh
 
 ## 横切关注
 
-- **i18n (en/zh)**:全站文案走 `src/i18n/` 的 message catalog(`en.json` / `zh.json`),经 `useMessages()` 读取;两份 catalog 由 `Messages` 接口锁同一形状(漂移即编译错)。locale 默认中文,Nav 里可切;切换同步 `<html lang>`。
-- **主题**:默认深色(`<html data-theme="dark">`),Nav 里可切深 / 浅并持久化;视觉系统全部来自上游 DS,本仓不重定义 palette/type。
+- **运行时(主题 + i18n)**:状态 / 持久化层消费 [`@agentaily/web-kit`](https://github.com/agentaily/web-kit)(非视觉运行时),本仓不再手搓 `ThemeProvider` / `useTheme` / `LocaleProvider`。视觉仍全部来自上游 DS。
+- **i18n (en/zh)**:全站文案走 `src/i18n/` 的 message catalog(`en.json` / `zh.json`),经 web-kit `createI18n` 注入,组件用 `useMessages()` 读取;两份 catalog 由 `Messages` 接口锁同一形状(漂移即编译错)。locale 解析顺序 = 持久值 → `navigator.language` → 兜底中文(`defaultLocale: "zh"`);Nav 里可切(即时重渲染,不 reload),切换同步 `<html lang>`,选择经**跨子域 cookie**持久化(`*.agentaily.com` 全站一致)。
+- **主题**:默认深色(`<ThemeProvider defaultTheme="dark">`,`<html data-theme="dark">` 为首屏默认),Nav 里可切深 / 浅,选择经跨子域 cookie 持久化;防 FOUC 由 web-kit `themeInitScript()` 经 Vite 插件注入 `index.html <head>`(首帧前同步设好 `data-theme`)。视觉系统全部来自上游 DS,本仓不重定义 palette/type。
 - **响应式**:移动优先;断点 760 / 900px(见 `landing.css`)。
 - **安全**:纯静态站,无 PII、客户端无密钥、外链一律 `rel="noopener noreferrer"`、无内联敏感信息。
 

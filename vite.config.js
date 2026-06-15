@@ -1,5 +1,26 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import { themeInitScript } from "@agentaily/web-kit";
+
+// Inline web-kit's themeInitScript into <head> (before any paint) so the persisted
+// theme is applied on the first frame — no flash of incorrect theme (FOUC). The
+// snippet is generated from the installed web-kit version, so it never drifts.
+// defaultTheme="dark" must match <ThemeProvider defaultTheme="dark"> in App.tsx;
+// the default storageKey (agentaily:theme) already matches the provider's default.
+function themeInitScriptPlugin() {
+  return {
+    name: "web-kit-theme-init-script",
+    transformIndexHtml() {
+      return [
+        {
+          tag: "script",
+          injectTo: "head-prepend",
+          children: themeInitScript({ defaultTheme: "dark" }),
+        },
+      ];
+    },
+  };
+}
 
 // Base path depends on the deploy target:
 //   - Cloudflare Pages (the production host, root domain) builds with base "/",
@@ -9,5 +30,5 @@ import react from "@vitejs/plugin-react";
 // DEPLOY_BASE later without touching code.
 export default defineConfig(({ command }) => ({
   base: command === "build" ? (process.env.DEPLOY_BASE ?? "/") : "/",
-  plugins: [react()],
+  plugins: [react(), themeInitScriptPlugin()],
 }));
