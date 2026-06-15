@@ -79,6 +79,8 @@ export interface Messages {
   how: { label: string; title: string; steps: HowStep[] };
   faq: { label: string; title: string; items: FaqItem[] };
   footer: {
+    /** Product tagline shown under the brand in the footer's big block. */
+    tagline: string;
     cols: FooterCol[];
     company: string;
     /** ICP filing number — a Chinese legal identifier, kept verbatim in both locales. */
