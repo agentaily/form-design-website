@@ -1,10 +1,10 @@
-import { createI18n } from "@agentaily/web-kit";
+import { createI18n } from "@agentaily/design-system";
 import en from "./en.json";
 import zh from "./zh.json";
 
 // Bilingual (en/zh) i18n seam for the landing page. The *mechanism* (provider,
 // locale state, cross-subdomain persistence, <html lang> sync, navigator
-// detection) is shared via @agentaily/web-kit's createI18n; this module only
+// detection) is shared via @agentaily/design-system's createI18n; this module only
 // injects the product's catalogs and the type contract they're checked against.
 // All user-visible copy lives in en.json / zh.json (the message catalogs),
 // read through useMessages(). The explicit `Messages` interface below is the
@@ -96,7 +96,7 @@ export interface Messages {
 // `Messages` shape (and both catalogs are still checked against it at compile time).
 const catalogs: Record<Locale, Messages> = { en, zh };
 
-// Default locale is zh; web-kit additionally honors a persisted choice and the
+// Default locale is zh; DS additionally honors a persisted choice and the
 // visitor's navigator.language before falling back to this default.
 export const { LocaleProvider, useLocale, useMessages } = createI18n({
   catalogs,

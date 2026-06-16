@@ -9,19 +9,19 @@ process.env.RTL_SKIP_AUTO_CLEANUP = "true";
 import { beforeEach } from "vitest";
 import "@testing-library/jest-dom/vitest";
 
-// Reset the per-test runtime preferences that @agentaily/web-kit reads, so each
+// Reset the per-test runtime preferences that @agentaily/design-system reads, so each
 // test starts from a clean, deterministic state:
 //
-//  - navigator.language: web-kit resolves the default locale as persisted value →
+//  - navigator.language: DS resolves the default locale as persisted value →
 //    navigator.language → defaultLocale (zh). jsdom's default is "en-US", which would
 //    resolve to "en" and break the site's Chinese-first default, so pin it to a zh
 //    visitor. A test that wants the English-browser path overrides this *after*
 //    beforeEach within its own step (and the next test's beforeEach restores zh-CN).
-//  - persistence: web-kit persists theme/locale so a choice sticks across reloads.
+//  - persistence: DS persists theme/locale so a choice sticks across reloads.
 //    Its "auto" backend lands on cookies in this jsdom env (Node's localStorage isn't
 //    enabled here), so clear cookies — and localStorage if present. Otherwise a choice
 //    made in one test (e.g. setLocale("en")) leaks into the next. (The old hand-rolled
-//    i18n had no persistence, so this isolation step is new with the web-kit adoption.)
+//    i18n had no persistence, so this isolation step is new with the runtime adoption.)
 beforeEach(() => {
   Object.defineProperty(window.navigator, "language", { value: "zh-CN", configurable: true });
   for (const entry of document.cookie ? document.cookie.split("; ") : []) {

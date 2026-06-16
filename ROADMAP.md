@@ -12,6 +12,8 @@
 
 - **运行时接入 `@agentaily/web-kit`(PR #3)** —— 删本仓手搓的 `src/lib/useTheme.ts` + `src/i18n` provider,换成 web-kit 的 `ThemeProvider` / `createI18n`(catalog 原样注入)/ `useTheme` / `useLocale` / `useMessages`;主题与 locale 经**跨子域 cookie** 持久化(`*.agentaily.com` 全站一致),防 FOUC 用 `themeInitScript()` 经 Vite 插件注入 `index.html`。行为:语言随浏览器探测、兜底中文,切换不 reload。视觉不变(仍归 DS)。细节见 [SPEC.md](./SPEC.md) §横切关注。
 
+- **运行时上游收敛 web-kit → DS(PR #4)** —— web-kit 弃用(theme/i18n/persistence 运行时自 DS 0.15.0 并入 DS),本站从 `@agentaily/web-kit` 迁到 `@agentaily/design-system`(同名导出 `ThemeProvider` / `useTheme` / `themeInitScript` / `createI18n`)。纯机械换包来源 + bump DS `^0.15.0`,**行为零变化**(cookie key / 跨子域域 / navigator 探测 / html lang 全不变)。收敛为单一上游,删 web-kit 依赖。
+
 ## 🚧 进行中
 
 -（暂无)
