@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ThemeProvider } from "@agentaily/web-kit";
+import { ThemeProvider } from "@agentaily/design-system";
 import { LocaleProvider, useMessages } from "./i18n";
 import { Nav } from "./components/Nav";
 import { SiteFooter } from "./components/SiteFooter";
@@ -15,7 +15,7 @@ function Landing() {
   const m = useMessages();
   useReveal();
 
-  // Keep the tab title in sync with the active locale (web-kit handles <html lang>;
+  // Keep the tab title in sync with the active locale (DS handles <html lang>;
   // the document title is product-specific, so we mirror it here).
   useEffect(() => {
     document.title = m.meta.title;
@@ -39,7 +39,7 @@ function Landing() {
   );
 }
 
-// Theme + locale runtime come from @agentaily/web-kit: ThemeProvider applies the
+// Theme + locale runtime come from @agentaily/design-system: ThemeProvider applies the
 // resolved theme to <html data-theme> (dark by default, cross-subdomain persisted);
 // LocaleProvider supplies the i18n context. FOUC is prevented by themeInitScript()
 // injected into index.html's <head> (see vite.config.js).

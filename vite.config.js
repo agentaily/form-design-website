@@ -1,15 +1,15 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { themeInitScript } from "@agentaily/web-kit";
+import { themeInitScript } from "@agentaily/design-system";
 
-// Inline web-kit's themeInitScript into <head> (before any paint) so the persisted
+// Inline DS's themeInitScript into <head> (before any paint) so the persisted
 // theme is applied on the first frame — no flash of incorrect theme (FOUC). The
-// snippet is generated from the installed web-kit version, so it never drifts.
+// snippet is generated from the installed DS version, so it never drifts.
 // defaultTheme="dark" must match <ThemeProvider defaultTheme="dark"> in App.tsx;
 // the default storageKey (agentaily:theme) already matches the provider's default.
 function themeInitScriptPlugin() {
   return {
-    name: "web-kit-theme-init-script",
+    name: "theme-init-script",
     transformIndexHtml() {
       return [
         {

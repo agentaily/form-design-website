@@ -24,7 +24,7 @@ npm run format       # prettier --write .
 
 - **双语落地页**:Nav → Hero(对话生成表单价值主张 + 「开始使用」+ 演示窗)→ 能力(Features)→ 怎么用(三步)→ FAQ → 页脚。视觉/交互设计见 [DESIGN.md](./DESIGN.md)。
 - **品牌 = Form Design**;深色主题默认;i18n 默认中文、可切英文(语言随浏览器探测,兜底中文)。
-- 视觉系统全部来自 `@agentaily/design-system`,不手搓;主题切换 / i18n / 跨子域持久化运行时来自 `@agentaily/web-kit`。
+- 视觉系统、主题切换 / i18n / 跨子域持久化运行时全部来自 `@agentaily/design-system`(单一上游),不手搓。
 
 ## 文档导航
 
